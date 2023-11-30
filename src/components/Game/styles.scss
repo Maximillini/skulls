@@ -1,0 +1,5 @@
+@use '/src/assets/styles/utilities/_colors.scss' as *;
+
+.player-hand {
+  border: 1px solid $primary;
+}

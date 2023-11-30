@@ -1,0 +1,10 @@
+.input-wrapper {
+  justify-content: space-between;
+  label {
+    flex: 0 0 auto;
+  }
+
+  input {
+    flex: 0 0 50%;
+  }
+}
