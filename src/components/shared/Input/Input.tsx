@@ -9,7 +9,7 @@ type InputProps = {
   name: string,
   disabled?: boolean,
   placeholder?: string,
-  error?: string
+  error?: string,
 }
 
 export const Input = ({ 
@@ -20,11 +20,13 @@ export const Input = ({
   name,
   placeholder,
   disabled,
-  error
-}: InputProps) => {
+  error,
+  children,
+  ...rest
+}: React.PropsWithChildren<InputProps>) => {
   
   return (
-    <div className="input-wrapper flex-row">
+    <div className="input-wrapper">
       <label htmlFor={name}>{label}</label>
       <input 
         type={type}
@@ -34,8 +36,10 @@ export const Input = ({
         value={value}
         onChange={onChange}
         disabled={disabled}
+        {...rest}
       />
-      {error && <p>{error}</p>}
+      {children}
+      {error && <div className="input-error">{error}</div>}
     </div>
   )
 }

@@ -1,0 +1,18 @@
+@use '/src/assets/styles/utilities/_colors.scss' as *;
+
+.input-wrapper {
+  // justify-content: space-between;
+  display: flex;
+  flex-flow: row wrap;
+  label {
+    flex: 0 0 100%;
+    text-align: left;
+  }
+
+  input {
+    flex: 0 0 100%;
+  }
+  .input-error {
+    color: $error;
+  }
+}
