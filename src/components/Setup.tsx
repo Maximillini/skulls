@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { Screen } from "../App"
-import { Input } from './shared/Input'
+import { Input } from './shared/Input/Input'
 
 type SetupProps = {
   handleChangeScreen: (screen: Screen) => void,
@@ -31,19 +31,21 @@ export const Setup = ({ handleChangeScreen, handleGameDataUpdate }: SetupProps) 
 
   return (
     <div className="setup-container">
-      <form>
+      <form className="setup-form">
         <Input
           label="Name"
           name="name"
           onChange={(e) => handleChange(e, setName)}
+          error={errors.name ?? null}
         />
         <Input
           label="No. of Players"
           name="player-count"
           value={playerCount}
-        />
-        <button onClick={(e) => handlePlayerCountChange(e, 1)}>+</button>
-        <button onClick={(e) => handlePlayerCountChange(e, -1)}>-</button>
+        >
+          <button onClick={(e) => handlePlayerCountChange(e, 1)}>+</button>
+          <button onClick={(e) => handlePlayerCountChange(e, -1)}>-</button>
+        </Input>
         <div className="flex-row">
           <input type="submit" onClick={e => handleSubmit(e)} value="Play!" />
         </div>

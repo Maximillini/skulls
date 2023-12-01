@@ -10,7 +10,13 @@
   background: #2b292e;
   border: 1px solid #646cff;
   border-radius: 5px;
+  display: flex;
   padding: 40px;
+  place-content: center;
+}
+
+.setup-form {
+  flex: 0 0 50%;
 }
 
 .logo {
