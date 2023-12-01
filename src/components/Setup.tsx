@@ -10,14 +10,17 @@ type SetupProps = {
 export const Setup = ({ handleChangeScreen, handleGameDataUpdate }: SetupProps) => {
   const [name, setName] = useState('')
   const [playerCount, setPlayerCount] = useState(3)
+  const [errors, setErrors] = useState({ name: '' })
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>, stateFn: React.Dispatch<React.SetStateAction<any>>) => {
+    if (name) setErrors({ name: '' })
     stateFn(e.target.value)
   }
 
   const handleSubmit = (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => {
     e.preventDefault()
-    handleGameDataUpdate({ name: name })
+    if (!name) return setErrors({ name: 'Name cannot be empty!' })
+    handleGameDataUpdate({ name: name, playerCount: playerCount })
     handleChangeScreen('game')
   }
 
