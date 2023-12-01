@@ -4,14 +4,14 @@ import './styles.scss'
 type GameProps = { gameData: GameData }
 
 export const Game = ({ gameData }: GameProps) => {
+  const { name, playerCount } = gameData
   return (
     <div className="game-container">
       <h1>GAME</h1>
       <div className="player-hand">
-        <p>Hello, { gameData.name }</p>
+        <p>Hello, { name }</p>
       </div>
-      <div className="left-player-hand"></div>
-      <div className="right-player-hand"></div>
+      <p>There are {playerCount} players</p>
     </div>
   )
 }
