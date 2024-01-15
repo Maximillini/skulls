@@ -1,5 +1,88 @@
 @use '/src/assets/styles/utilities/_colors.scss' as *;
 
+$card-size: 60px;
+$card-padding: 4%;
+$facedown-card-padding: 10px;
+
+.play-area {
+  background: $success;
+  border-radius: 2px;
+  flex: 1 1 100%;
+  padding: 200px;
+}
+
 .player-hand {
   border: 1px solid $primary;
+  min-height: 50px;
+}
+
+.hand-container {
+  padding: 40px;
+  margin: 40px;
+  .hand-card {
+    background: $primary;
+    border-radius: 50%;
+    font-size: 26px;
+    padding: $card-padding;
+    position: relative;
+    margin: 5px;
+    user-select: none;
+    &.skull {
+      background: $error;
+    }
+    &:hover {
+      // border: 1px solid $error;
+      bottom: 16px;
+      box-shadow: 0px 0px 15px $white;
+      cursor: pointer;
+      // font-size: 50px;
+      // padding: 8%;
+      // transition: all 1s;
+    }
+  }
+}
+
+.play-area-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.opponent {
+  flex: 0 0 100%;
+}
+
+.hidden-card {
+  background-color: $primary;
+  border-radius: 50%;
+  box-shadow: 1px 1px $black;
+  height: $card-size;
+  margin: 6px;
+  padding: $facedown-card-padding;
+  width: $card-size;
+}
+
+.opponent-row {
+  display: flex;
+  width: 100%;
+}
+
+.opponent-container {
+  background: plum;
+  flex: 0 0 10%;
+  text-align: center;
+  .opponent-hand {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+  }
+}
+
+.player-mat {
+  align-items: center;
+  background: $error;
+  border-radius: 5px;
+  flex: 0 0 2%;
+  height: 100px;
+  justify-content: center;
+  padding: 10px;
 }
